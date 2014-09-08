@@ -118,7 +118,8 @@ void loop()
   }
   else if (millis() - lastBlockTime > 100)
   {
-    motordriver.stop();//motors.setLeftSpeed(0);
+    motordriver.stop();
+    Serial.println("can't find object");//motors.setLeftSpeed(0);
     //motors.setRightSpeed(0);
     ScanForBlocks();
   }
@@ -185,8 +186,8 @@ int TrackBlock(int blockCount)
 {
   int trackedBlock = 0;
   long maxSize = 0;
-  Serial.print("blocks =");
-  Serial.println(blockCount);
+//  Serial.print("blocks =");
+//  Serial.println(blockCount);
   for (int i = 0; i < blockCount; i++)
   {
     if ((oldSignature == 0) || (pixy.blocks[i].signature == oldSignature))
